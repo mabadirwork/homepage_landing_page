@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 210'%3E%3Cpolygon fill='%232a4a6a' points='50,0 10,28 90,28'/%3E%3Cpolygon fill='%234a5a6a' points='10,28 0,44 100,44 90,28'/%3E%3Cpolygon fill='%233a6a9a' points='0,44 -18,30 -18,60 0,60'/%3E%3Cpolygon fill='%233a6a9a' points='100,44 118,30 118,60 100,60'/%3E%3Crect fill='%23529CCA' x='0' y='44' width='100' height='72' rx='2'/%3E%3Crect fill='%232a4a6a' x='0' y='44' width='100' height='14' rx='2'/%3E%3Cpolygon fill='%2390d0ff' points='50,47 56,54 50,58 44,54'/%3E%3Crect fill='%231a3a5a' x='8' y='68' width='84' height='20' rx='1'/%3E%3Crect fill='%2390d0ff' x='14' y='72' width='28' height='12' rx='1'/%3E%3Crect fill='%2390d0ff' x='58' y='72' width='28' height='12' rx='1'/%3E%3Crect fill='%232a4a6a' x='32' y='92' width='36' height='20' rx='1'/%3E%3Cpolygon fill='%233a6a9a' points='0,116 8,130 92,130 100,116'/%3E%3Crect fill='%234a5a6a' x='16' y='130' width='68' height='10' rx='1'/%3E%3Crect fill='%232a4a6a' x='0' y='140' width='100' height='50' rx='2'/%3E%3Cpolygon fill='%23529CCA' points='50,148 66,158 66,174 50,182 34,174 34,158'/%3E%3Cpolygon fill='%2390d0ff' points='50,153 61,160 61,172 50,177 39,172 39,160'/%3E%3Cpolygon fill='%231a3a5a' points='50,158 57,163 57,169 50,172 43,169 43,163'/%3E%3Cpolygon fill='%233a6a9a' points='0,190 6,200 94,200 100,190'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #191919;
+  --surface:  #2F3437;
+  --surface2: #373C3F;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --text:     rgba(255,255,255,0.9);
+  --muted:    rgba(255,255,255,0.45);
+  --accent:   #529CCA;
+  --radius:   6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar { width: 5px; }
+body::-webkit-scrollbar-track { background: transparent; }
+body::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 4px; }
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 32px 80px;
+}
+
+/* ── Top bar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  animation: fadeDown 0.4s ease both;
+}
+.clock {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 44px;
+  animation: fadeDown 0.4s ease 0.04s both;
+}
+.eyebrow {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.subtitle {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.rule {
+  width: 36px; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 14px;
+  opacity: 0.6;
+}
+
+/* ── Sections ── */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.section { animation: fadeUp 0.4s ease both; }
+.section:nth-child(1) { animation-delay: 0.07s; }
+.section:nth-child(2) { animation-delay: 0.13s; }
+.section:nth-child(3) { animation-delay: 0.19s; }
+.section:nth-child(4) { animation-delay: 0.25s; }
+
+.sec-title {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Card grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.14s, border-color 0.14s, transform 0.14s;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(82,156,202,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+.card:hover {
+  background: var(--surface2);
+  border-color: var(--border2);
+  transform: translateY(-1px);
+}
+.card:hover::before { opacity: 1; }
+
+.card-icon { font-size: 17px; flex-shrink: 0; line-height: 1; }
+.card-name {
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Animations ── */
+@keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:none; } }
+@keyframes fadeUp   { from { opacity:0; transform:translateY(8px);  } to { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <div class="clock" id="clock"></div>
+  </div>
+
+  <div class="header">
+    <div class="eyebrow">MPLX Links</div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="-28 0 156 205" style="width:36px;height:auto;flex-shrink:0;"> -->
+        <polygon fill="#2a4a6a" points="50,0 10,28 90,28"/>
+        <polygon fill="#4a5a6a" points="10,28 0,44 100,44 90,28"/>
+        <polygon fill="#3a6a9a" points="0,44 -18,30 -18,60 0,60"/>
+        <polygon fill="#3a6a9a" points="100,44 118,30 118,60 100,60"/>
+        <polygon fill="#2a4a6a" points="-18,30 -26,24 -22,56 -18,60"/>
+        <polygon fill="#2a4a6a" points="118,30 126,24 122,56 118,60"/>
+        <rect fill="#529CCA" x="0" y="44" width="100" height="72" rx="2"/>
+        <rect fill="#2a4a6a" x="0" y="44" width="100" height="14" rx="2"/>
+        <polygon fill="#90d0ff" points="50,47 56,54 50,58 44,54"/>
+        <rect fill="#1a3a5a" x="8" y="68" width="84" height="20" rx="1"/>
+        <rect fill="#90d0ff" x="14" y="72" width="28" height="12" rx="1"/>
+        <rect fill="#90d0ff" x="58" y="72" width="28" height="12" rx="1"/>
+        <rect fill="#7ab8e0" x="20" y="74" width="16" height="8" rx="1"/>
+        <rect fill="#7ab8e0" x="64" y="74" width="16" height="8" rx="1"/>
+        <rect fill="#2a4a6a" x="32" y="92" width="36" height="20" rx="1"/>
+        <line x1="38" y1="96" x2="38" y2="108" stroke="#529CCA" stroke-width="1.5"/>
+        <line x1="44" y1="96" x2="44" y2="108" stroke="#529CCA" stroke-width="1.5"/>
+        <line x1="50" y1="96" x2="50" y2="108" stroke="#529CCA" stroke-width="1.5"/>
+        <line x1="56" y1="96" x2="56" y2="108" stroke="#529CCA" stroke-width="1.5"/>
+        <line x1="62" y1="96" x2="62" y2="108" stroke="#529CCA" stroke-width="1.5"/>
+        <polygon fill="#3a6a9a" points="0,116 8,130 92,130 100,116"/>
+        <rect fill="#4a5a6a" x="16" y="130" width="68" height="10" rx="1"/>
+        <polygon fill="#2a4a6a" points="-20,116 0,116 0,136 -14,136"/>
+        <polygon fill="#2a4a6a" points="120,116 100,116 100,136 114,136"/>
+        <polygon fill="#3a6a9a" points="-28,120 -20,116 -14,136 -24,136"/>
+        <polygon fill="#3a6a9a" points="128,120 120,116 114,136 124,136"/>
+        <rect fill="#2a4a6a" x="0" y="140" width="100" height="50" rx="2"/>
+        <polygon fill="#529CCA" points="50,148 66,158 66,174 50,182 34,174 34,158"/>
+        <polygon fill="#90d0ff" points="50,153 61,160 61,172 50,177 39,172 39,160"/>
+        <polygon fill="#1a3a5a" points="50,158 57,163 57,169 50,172 43,169 43,163"/>
+        <rect fill="#4a5a6a" x="4"  y="148" width="26" height="6" rx="1"/>
+        <rect fill="#4a5a6a" x="4"  y="157" width="20" height="4" rx="1"/>
+        <rect fill="#4a5a6a" x="4"  y="164" width="24" height="4" rx="1"/>
+        <rect fill="#4a5a6a" x="70" y="148" width="26" height="6" rx="1"/>
+        <rect fill="#4a5a6a" x="76" y="157" width="20" height="4" rx="1"/>
+        <rect fill="#4a5a6a" x="72" y="164" width="24" height="4" rx="1"/>
+        <polygon fill="#3a6a9a" points="0,190 6,200 94,200 100,190"/>
+      </svg>
+      <div>
+        <h1>Dashboard</h1>
+        <div class="subtitle">Peraton · Metroplex Infrastructure</div>
+      </div>
+    </div>
+    <div class="rule"></div>
+  </div>
+
+  <div class="sections">
+
+    <div class="section">
+      <div class="sec-title">🧪 Lab 2</div>
+      <div class="grid">
+        <a class="card" href="https://ipa.lab2.internal" target="_blank">
+          <span class="card-icon">🔐</span>
+          <div><div class="card-name">IPA</div><div class="card-hint">AD/SSO · admin</div></div>
+        </a>
+        <a class="card" href="https://openshift.lab2.internal" target="_blank">
+          <span class="card-icon">☸️</span>
+          <div><div class="card-name">OpenShift</div><div class="card-hint">AD/SSO · kubeadmin</div></div>
+        </a>
+        <a class="card" href="https://satellite.lab2.internal" target="_blank">
+          <span class="card-icon">🛰️</span>
+          <div><div class="card-name">Satellite</div><div class="card-hint">AD/SSO · admin</div></div>
+        </a>
+        <a class="card" href="https://quay.lab2.internal" target="_blank">
+          <span class="card-icon">📦</span>
+          <div><div class="card-name">Quay</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+        <a class="card" href="https://openmanage.lab2.internal" target="_blank">
+          <span class="card-icon">🖥️</span>
+          <div><div class="card-name">OpenManage</div><div class="card-hint">local admin</div></div>
+        </a>
+        <a class="card" href="https://openstack.lab2.internal" target="_blank">
+          <span class="card-icon">☁️</span>
+          <div><div class="card-name">OpenStack</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+        <a class="card" href="https://aap.lab2.internal" target="_blank">
+          <span class="card-icon">⚙️</span>
+          <div><div class="card-name">AAP</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+        <a class="card" href="https://security.lab2.internal" target="_blank">
+          <span class="card-icon">🛡️</span>
+          <div><div class="card-name">Security Center</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">🔒 Vault</div>
+      <div class="grid">
+        <a class="card" href="https://vault.internal" target="_blank">
+          <span class="card-icon">🏛️</span>
+          <div><div class="card-name">Vault Primary</div><div class="card-hint">token · LDAP</div></div>
+        </a>
+        <a class="card" href="https://vault-dr.internal" target="_blank">
+          <span class="card-icon">🔄</span>
+          <div><div class="card-name">Vault Secondary</div><div class="card-hint">replication · DR</div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">🚀 MPLX</div>
+      <div class="grid">
+        <a class="card" href="https://gitlab.internal" target="_blank">
+          <span class="card-icon">🦊</span>
+          <div><div class="card-name">GitLab</div><div class="card-hint">AD/SSO · MPLX-DEV</div></div>
+        </a>
+        <a class="card" href="https://jira.internal" target="_blank">
+          <span class="card-icon">📋</span>
+          <div><div class="card-name">Jira</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+        <a class="card" href="https://confluence.internal" target="_blank">
+          <span class="card-icon">📝</span>
+          <div><div class="card-name">Confluence</div><div class="card-hint">AD/SSO</div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">🎓 Training</div>
+      <div class="grid">
+        <a class="card" href="https://udemy.com" target="_blank">
+          <span class="card-icon">🎯</span>
+          <div><div class="card-name">Udemy</div><div class="card-hint">SSO</div></div>
+        </a>
+        <a class="card" href="https://pluralsight.com" target="_blank">
+          <span class="card-icon">🎓</span>
+          <div><div class="card-name">Pluralsight</div><div class="card-hint">SSO</div></div>
+        </a>
+        <a class="card" href="https://redhat.com/en/services/training" target="_blank">
+          <span class="card-icon">🎩</span>
+          <div><div class="card-name">Red Hat Training</div><div class="card-hint">RHCSA / EX200</div></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' }) +
+    ' · ' +
+    now.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+</body>
+</html>
