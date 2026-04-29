@@ -237,40 +237,36 @@ h1 {
       <div class="sec-title">🧪 Lab 2</div>
       <div class="grid">
         <a class="card" href="https://ipa01.ime.dc2.mplx.local" target="_blank">
-          <span class="card-icon">🔐</span>
-          <div><div class="card-name">IPA 01</div><div class="card-hint">AD/SSO · admin</div></div>
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">IPA 01</div><div class="card-hint">IPA Credentials</div></div>
         </a>
         <a class="card" href="https://ipa02.ime.dc2.mplx.local" target="_blank">
-          <span class="card-icon">🔐</span>
-          <div><div class="card-name">IPA 02</div><div class="card-hint">AD/SSO · admin</div></div>
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">IPA 02</div><div class="card-hint">IPA Credentials</div></div>
         </a>
-        <a class="card" href="https://openshift.lab2.internal" target="_blank">
-          <span class="card-icon">☸️</span>
-          <div><div class="card-name">OpenShift</div><div class="card-hint">AD/SSO · kubeadmin</div></div>
+        <a class="card" href="https://console-openshift-console.apps.openshift.ime.dc2.mplx.local/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">IME OpenShift</div><div class="card-hint">IPA Credentials</div></div>
         </a>
-        <a class="card" href="https://satellite.lab2.internal" target="_blank">
-          <span class="card-icon">🛰️</span>
-          <div><div class="card-name">Satellite</div><div class="card-hint">AD/SSO · admin</div></div>
+        <a class="card" href="https://satellite.ime.dc2.mplx.local/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Satellite</div><div class="card-hint">IPA Credentials</div></div>
         </a>
-        <a class="card" href="https://quay.lab2.internal" target="_blank">
-          <span class="card-icon">📦</span>
-          <div><div class="card-name">Quay</div><div class="card-hint">AD/SSO</div></div>
+        <a class="card" href="https://quay.apps.openshift.ime.dc2.mplx.local/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Quay Operator</div><div class="card-hint">IPA Credentials</div></div>
         </a>
-        <a class="card" href="https://openmanage.lab2.internal" target="_blank">
-          <span class="card-icon">🖥️</span>
-          <div><div class="card-name">OpenManage</div><div class="card-hint">local admin</div></div>
+        <a class="card" href="https://openmanage.ime.dc2.mplx.local/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">OpenManage</div><div class="card-hint">AD Credentials (ad\admin2)</div></div>
         </a>
-        <a class="card" href="https://openstack.lab2.internal" target="_blank">
-          <span class="card-icon">☁️</span>
-          <div><div class="card-name">OpenStack</div><div class="card-hint">AD/SSO</div></div>
+        <a class="card" href="https://horizon.iaas.dev.dc2.mplx.local/dashboard/auth/login/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">OpenStack</div><div class="card-hint">AD Credentials</div></div>
         </a>
-        <a class="card" href="https://aap.lab2.internal" target="_blank">
-          <span class="card-icon">⚙️</span>
-          <div><div class="card-name">AAP</div><div class="card-hint">AD/SSO</div></div>
-        </a>
-        <a class="card" href="https://security.lab2.internal" target="_blank">
-          <span class="card-icon">🛡️</span>
-          <div><div class="card-name">Security Center</div><div class="card-hint">AD/SSO</div></div>
+        <a class="card" href="https://ime-automationcontroller-aap.apps.openshift.ime.dc2.mplx.local/login" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">AAP</div><div class="card-hint">IPA Credentials</div></div>
         </a>
       </div>
     </div>
@@ -278,13 +274,13 @@ h1 {
     <div class="section">
       <div class="sec-title">🔒 Vault</div>
       <div class="grid">
-        <a class="card" href="https://vault.internal" target="_blank">
-          <span class="card-icon">🏛️</span>
-          <div><div class="card-name">Vault Primary</div><div class="card-hint">token · LDAP</div></div>
+        <a class="card" href="https://vault.apps.openshift.ime.dc2.mplx.local" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Vault Primary</div><div class="card-hint">LDAP=Token</div></div>
         </a>
-        <a class="card" href="https://vault-dr.internal" target="_blank">
-          <span class="card-icon">🔄</span>
-          <div><div class="card-name">Vault Secondary</div><div class="card-hint">replication · DR</div></div>
+        <a class="card" href="https://vault-replication-secondary.apps.imes.dev.dc2.mplx.local" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Vault Secondary</div><div class="card-hint">LDAP=Token</div></div>
         </a>
       </div>
     </div>
@@ -292,17 +288,21 @@ h1 {
     <div class="section">
       <div class="sec-title">🚀 MPLX</div>
       <div class="grid">
-        <a class="card" href="https://gitlab.internal" target="_blank">
-          <span class="card-icon">🦊</span>
-          <div><div class="card-name">GitLab</div><div class="card-hint">AD/SSO · MPLX-DEV</div></div>
+        <a class="card" href="https://sso.peraton.com/app/UserHome?session_hint=AUTHENTICATED/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">MyApps</div><div class="card-hint">Peraton SSO</div></div>
         </a>
-        <a class="card" href="https://jira.internal" target="_blank">
-          <span class="card-icon">📋</span>
-          <div><div class="card-name">Jira</div><div class="card-hint">AD/SSO</div></div>
+        <a class="card" href="https://uscyl1swv06.peraton.com/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">GitLab</div><div class="card-hint">AD/KeePass</div></div>
         </a>
-        <a class="card" href="https://confluence.internal" target="_blank">
-          <span class="card-icon">📝</span>
-          <div><div class="card-name">Confluence</div><div class="card-hint">AD/SSO</div></div>
+        <a class="card" href="https://jira.msf.peratonpartners.us/secure/Dashboard.jspa" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Jira</div><div class="card-hint">Peraton SSO</div></div>
+        </a>
+        <a class="card" href="https://confluence.msf.peratonpartners.us/" target="_blank">
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Confluence</div><div class="card-hint">Peraton SSO</div></div>
         </a>
       </div>
     </div>
@@ -311,16 +311,16 @@ h1 {
       <div class="sec-title">🎓 Training</div>
       <div class="grid">
         <a class="card" href="https://udemy.com" target="_blank">
-          <span class="card-icon">🎯</span>
-          <div><div class="card-name">Udemy</div><div class="card-hint">SSO</div></div>
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Udemy</div><div class="card-hint">Google</div></div>
         </a>
         <a class="card" href="https://pluralsight.com" target="_blank">
-          <span class="card-icon">🎓</span>
-          <div><div class="card-name">Pluralsight</div><div class="card-hint">SSO</div></div>
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Pluralsight</div><div class="card-hint">KeePass</div></div>
         </a>
         <a class="card" href="https://redhat.com/en/services/training" target="_blank">
-          <span class="card-icon">🎩</span>
-          <div><div class="card-name">Red Hat Training</div><div class="card-hint">RHCSA / EX200</div></div>
+          <span class="card-icon">🌐</span>
+          <div><div class="card-name">Red Hat Training</div><div class="card-hint">KeyPass</div></div>
         </a>
       </div>
     </div>
