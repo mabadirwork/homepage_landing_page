@@ -122,6 +122,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 8px;
+  align-items: stretch;
 }
 
 .card {
@@ -137,6 +138,9 @@ h1 {
   transition: background 0.14s, border-color 0.14s, transform 0.14s;
   position: relative;
   overflow: hidden;
+  align-self: stretch;
+  height: 100%;
+  box-sizing: border-box;
 }
 .card::before {
   content: '';
