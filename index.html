@@ -138,10 +138,9 @@ h1 {
   transition: background 0.14s, border-color 0.14s, transform 0.14s;
   position: relative;
   overflow: hidden;
-  align-self: stretch;
-  height: 100%;
-  box-sizing: border-box;
+  min-height: 58px;
 }
+
 .card::before {
   content: '';
   position: absolute; inset: 0;
@@ -217,7 +216,7 @@ h1 {
           <span class="card-icon">🌐</span>
           <div><div class="card-name">Quay Operator</div><div class="card-hint">🔑 IPA Credentials</div></div>
         </a>
-        <a class="card" href="LINK" target="_blank">
+        <a class="card" href="https://openmanage.ime.dc2.mplx.local/" target="_blank">
           <span class="card-icon">🌐</span>
           <div style="display: flex; flex-direction: column;">
             <div><div class="card-name">OpenManage</div><div class="card-hint">🔑 AD Credentials</div></div>
